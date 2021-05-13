@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -16,7 +16,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
-import axios from 'axios'
+import axios from "axios";
 import task1image from "../../images/Taskcovers/dataset-cover.jpg";
 import task2image from "../../images/Taskcovers/dataset-cover2.jpg";
 
@@ -62,30 +62,31 @@ export default function TaskCard() {
   const [taskdata, setTaskdata] = React.useState([]);
 
   const fetchtasks = () => {
-    axios.get('https://seli-api.herokuapp.com/getop/?link=https://www.kaggle.com/uciml/iris')
-    .then(res => 
-      {
-        const data = res.data.MESSAGE
-        var newtaskdata = taskdata.slice()
+    axios
+      .get(
+        "https://seli-api.herokuapp.com/getop/?link=https://www.kaggle.com/uciml/iris"
+      )
+      .then((res) => {
+        const data = res.data.MESSAGE;
+        var newtaskdata = taskdata.slice();
         newtaskdata.push(data);
         setTaskdata(newtaskdata);
-      }
-    )
-    axios.get('https://seli-api.herokuapp.com/getop/?link=https://www.kaggle.com/nehalbirla/vehicle-dataset-from-cardekho/metadata')
-    .then(res => 
-      {
-        const data = res.data.MESSAGE
-        var newtaskdata = taskdata.slice()
+      });
+    axios
+      .get(
+        "https://seli-api.herokuapp.com/getop/?link=https://www.kaggle.com/nehalbirla/vehicle-dataset-from-cardekho/metadata"
+      )
+      .then((res) => {
+        const data = res.data.MESSAGE;
+        var newtaskdata = taskdata.slice();
         newtaskdata.push(data);
         setTaskdata(newtaskdata);
-      }
-    )
- 
-  }
+      });
+  };
 
   useEffect(() => {
-    fetchtasks()
-  }, [])
+    fetchtasks();
+  }, []);
 
   return (
     <div className={classes.cards}>
@@ -110,7 +111,7 @@ export default function TaskCard() {
             height: "300px",
             width: "90%",
             marginLeft: "1%",
-            justifyContent: 'space-between'
+            justifyContent: "space-between",
           }}
         >
           <CardMedia
@@ -119,11 +120,15 @@ export default function TaskCard() {
             title="Iris Species"
           />
           {/* Nitin Heres the div where u have to add it */}
-          <div>
-            <h1>{taskdata[0].Licences}</h1>
-            {taskdata[0].Tags.map(tag => <h1>{tag}</h1>)}
-            <h1>{taskdata[0].Usability}</h1>
-          </div>
+          {taskdata.length && (
+            <div>
+              <h1>{taskdata[0].Licences}</h1>
+              {taskdata[0].Tags.map((tag) => (
+                <h1>{tag}</h1>
+              ))}
+              <h1>{taskdata[0].Usability}</h1>
+            </div>
+          )}
         </div>
 
         <CardContent>
@@ -195,18 +200,30 @@ export default function TaskCard() {
           title="Task 2 - Vehicle Dataset"
           subheader="April 4th, 2021"
         />
-        <div style={{ height: "300px", width: "90%", marginLeft: "1%", display: 'flex', justifyContent: 'space-between' }}>
+        <div
+          style={{
+            height: "300px",
+            width: "90%",
+            marginLeft: "1%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <CardMedia
             className={classes.media}
             src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/202984001"
             class="Header_CoverImg-sc-1431b7d ibFJYv"
             title="Vehicle dataset"
           />
-          <div>
-            <h1>{taskdata[1].Licences}</h1>
-            {taskdata[1].Tags.map(tag => <h1>{tag}</h1>)}
-            <h1>{taskdata[1].Usability}</h1>
-          </div>
+          {taskdata.length && (
+            <div>
+              <h1>{taskdata[1].Licences}</h1>
+              {taskdata[1].Tags.map((tag) => (
+                <h1>{tag}</h1>
+              ))}
+              <h1>{taskdata[1].Usability}</h1>
+            </div>
+          )}
         </div>
 
         <CardContent>
