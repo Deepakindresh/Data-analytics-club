@@ -1,12 +1,16 @@
 import React from 'react'
 import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SigninElements'
 
+
+import Logo from '../images/daclogo.png';
+
+
 const SignIn = () => {
   return (
     <>
       <Container>
         <FormWrap>
-          <Icon to='/'>dolla</Icon>
+          <Icon to='/'><img src={Logo} alt="" width="90" height="90"/> Data Analytics Club</Icon>
           <FormContent>
             <Form action='#'>
               <FormH1>Sign in to your account</FormH1>

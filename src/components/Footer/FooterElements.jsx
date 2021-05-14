@@ -88,16 +88,26 @@ export const SocialLogo = styled(Link)`
   align-items: center;
   margin-bottom: 16px;
   font-weight: bold;
+  
 `
 export const WebsiteRights = styled.small`
   color: #fff;
   margin-bottom: 16px;
+  align-items: center;
+  align-content: center;
+  align-text: center;
+  justify-content: center;
+  justify-items:center;
+  justify-self: center;
+  align-self:center;
+  margin-left: 35%;
 `
 export const SocialIcons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 240px;
+  margin-bottom: 30px;
 `
 export const SocialIconLink = styled.a`
   color: #fff;

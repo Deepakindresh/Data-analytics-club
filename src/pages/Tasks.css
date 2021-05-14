@@ -1,0 +1,11 @@
+.TasksBody
+{
+    display : flex;
+    margin-top: 5%;
+}
+
+.Tasks
+{
+    background-color: black;
+    width : 100%;
+}
