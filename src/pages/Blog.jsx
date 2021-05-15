@@ -85,7 +85,6 @@ export default function Blog2() {
     <React.Fragment>
       <CssBaseline />
       <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle}/>
       <main>
         {/* Hero unit */}
         
@@ -131,9 +130,7 @@ export default function Blog2() {
           
           
       </main>
-      {/* Footer */}
-      <Footer/>
-      {/* End footer */}
+
     </React.Fragment>
   );
 }

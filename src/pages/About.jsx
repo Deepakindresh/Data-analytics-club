@@ -10,9 +10,7 @@ import Sidebar from '../components/SideBar/Sidebar'
 function About() {
     return (
         <div>
-            <Navbar/>
             <Info {...Aboutus}/>
-            <Footer/>
         </div>
     )
 }

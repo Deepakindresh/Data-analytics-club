@@ -13,9 +13,9 @@ import './Tasks.css'
 
 function Tasks() {
     return (
-        <div>
+        <div className="Main">
             <div className = "Tasks">
-                <Navbar/>
+
                 <div className = 'TasksBody'>
                     <Info {...Task}/>
                 </div>
@@ -25,7 +25,7 @@ function Tasks() {
             <TaskCard/>
             </div>
             
-            <Footer/>
+
         </div>
     )
 }

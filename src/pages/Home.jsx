@@ -10,22 +10,18 @@ import BlogsHome from '../components/BlogsHome/BlogsHome'
 import News from '../components/News/News';
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggle = () =>{
-    setIsOpen(!isOpen);
-  }
+  
 
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle}/>
+      
+
       <Hero />
       <News />
       <Info {...homeObjOne}/>
       <BlogsHome/>
       <Info {...About}/>
-      <Footer />
+
     </>
   )
 }

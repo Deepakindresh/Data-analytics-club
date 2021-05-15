@@ -1,11 +1,11 @@
-.TasksBody
-{
-
-    margin-top: 5%;
-}
 
 .Tasks
 {
     background-color: #010606;
+    padding-top: 5%;
     width : 100%;
+}
+
+.Main{
+    background-color: #010606;
 }
