@@ -17,7 +17,7 @@ import Link from '@material-ui/core/Link';
 import Footer from '../components/Footer/Footer';
 import Hero from '../components/Hero/Hero'
 import Info from '../components/Info/Info'
-import { homeObjOne, homeObjTwo, homeObjThree, Blogpage, Ourblog} from '../components/Info/Data';
+import { homeObjOne, homeObjTwo, homeObjThree, Blogpage, Ourblog, Writeblog} from '../components/Info/Data';
 import Navbar from '../components/Navbar/Navbar'
 import Services from '../components/Services/Service';
 import Sidebar from '../components/SideBar/Sidebar'
@@ -91,7 +91,7 @@ export default function Blog2() {
         
         
           {/* End hero unit */}
-          <Info {...Blogpage}/>
+          <Info {...Ourblog}/>
           <div style={{backgroundColor: "black",marginTop:"-250px"}}>
           <Container className={classes.cardGrid} maxWidth="md" >
           <Grid container spacing={10}>
@@ -126,7 +126,7 @@ export default function Blog2() {
             ))}
           </Grid>
         </Container>
-          <Info {...Ourblog}/>
+          <Info {...Writeblog}/>
           </div>
           
           

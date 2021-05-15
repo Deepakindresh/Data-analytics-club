@@ -4,9 +4,10 @@ import Hero from '../components/Hero/Hero'
 import Info from '../components/Info/Info'
 import { homeObjOne, homeObjTwo, About} from '../components/Info/Data';
 import Navbar from '../components/Navbar/Navbar'
-import Services from '../components/News/News';
+
 import Sidebar from '../components/SideBar/Sidebar'
 import BlogsHome from '../components/BlogsHome/BlogsHome'
+import News from '../components/News/News';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +21,7 @@ const Home = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle}/>
       <Hero />
-      <Services />
+      <News />
       <Info {...homeObjOne}/>
       <BlogsHome/>
       <Info {...About}/>

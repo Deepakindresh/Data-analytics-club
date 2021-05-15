@@ -1,11 +1,11 @@
 .TasksBody
 {
-    display : flex;
+
     margin-top: 5%;
 }
 
 .Tasks
 {
-    background-color: black;
+    background-color: #010606;
     width : 100%;
 }

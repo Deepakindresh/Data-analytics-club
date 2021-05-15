@@ -48,10 +48,17 @@ const Navbar = ({ toggle }) => {
               >Blogs</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to='/AboutUS'
+              <NavLinks to='/AboutUs'
               
               >About Us</NavLinks>
             </NavItem>
+
+            <NavItem>
+              <NavLinks to = '/Tasks'
+              
+              >Tasks</NavLinks>
+            </NavItem>
+            
           </NavMenu>
           <NavBtn>
             <NavBtnLink to='/signin'>Sign In</NavBtnLink>

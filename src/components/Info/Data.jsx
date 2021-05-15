@@ -48,14 +48,14 @@ export const About = {
   darkText: true
 };
 
-export const Blogpage = {
-  id: 'blog',
+export const Ourblog = {
+  id: 'Ourblog',
   lightBg: false,
   lightText: true,
   lighttextDesc: true,
   topLine: 'Data Analytics Club',
-  headline: 'Blogs',
-  description: 'Get access to write your own blogs and bring flavours to the Data Analytics World.',
+  headline: 'Our Blogs',
+  description: 'For everyone to read and enjoy. Dont forget to leave your comments.',
   buttonLabel: 'Get started',
   imgStart: false,
   img: '/images/svg-1.svg',
@@ -65,15 +65,15 @@ export const Blogpage = {
   darkText: false
 }
 
-export const Ourblog = {
-  id: 'Ourblog',
+export const Writeblog = {
+  id: 'Writeblog',
   lightBg: true,
   lightText: false,
   lighttextDesc: false,
   topLine: 'Data Analytics Club',
-  headline: 'Our Blogs',
-  description: 'For everyone to read and enjoy. Dont forget to leave your comments.',
-  buttonLabel: 'Learn More',
+  headline: 'Write your own Blogs',
+  description: 'Get access to write your own blogs and bring flavours to the Data Analytics World.',
+  buttonLabel: 'Become a member',
   imgStart: true,
   img: '/images/svg-4.svg',
   alt: 'Piggybanck',

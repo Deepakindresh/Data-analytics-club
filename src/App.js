@@ -8,12 +8,42 @@ import News from './pages/News'
 import Tasks from './pages/Tasks'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import React, {useEffect} from 'react';
+import {auth} from './Firebase'
+import {useStateValue} from './StateProvider'
+
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Team from './pages/team'
 
 
 function App() {
+
+  const [{user}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if(authUser){
+        //User is logged in
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        })
+      }else{
+        //No one is
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        })
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  },[]);
+
+
+
   return (
     <div>
       

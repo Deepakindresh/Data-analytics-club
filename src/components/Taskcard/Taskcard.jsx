@@ -17,8 +17,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
-import task1image from "../../images/Taskcovers/dataset-cover.jpg";
-import task2image from "../../images/Taskcovers/dataset-cover2.jpg";
+import task1image from "./Taskcovers/dataset-cover.jpg";
+import task2image from "./Taskcovers/dataset-cover2.jpg";
 
 const useStyles = makeStyles((theme) => ({
   cards: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
   },
   media: {
-    height: 0,
+    height: "100px",
     paddingTop: "56.25%", // 16:9
   },
   expand: {
@@ -116,8 +116,10 @@ export default function TaskCard() {
         >
           <CardMedia
             className={classes.media}
-            image={task1image}
+            image="./Taskcovers/dataset-cover.jpg"
             title="Iris Species"
+            height="100px"
+            
           />
           {/* Nitin Heres the div where u have to add it */}
           {taskdata.length && (
@@ -211,8 +213,7 @@ export default function TaskCard() {
         >
           <CardMedia
             className={classes.media}
-            src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/202984001"
-            class="Header_CoverImg-sc-1431b7d ibFJYv"
+            image="./Taskcovers/dataset-cover2.jpg"
             title="Vehicle dataset"
           />
           {taskdata.length && (
