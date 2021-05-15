@@ -14,7 +14,7 @@ import {useStateValue} from './StateProvider'
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import Team from './pages/team'
+import Team from './pages/Team'
 
 
 function App() {
@@ -56,9 +56,10 @@ function App() {
         <Route exact path = '/News' component = {News}/>
         <Route exact path = '/Tasks' component = {Tasks}/>
         <Route exact path='/' component={Home}/>
-        <Route exact path = '/Teams'>
+        <Route exact path = '/Teams' component={Team}>
           <Navbar/>
           <Team/>
+          <Footer/>
         </Route>
          
       </Switch>

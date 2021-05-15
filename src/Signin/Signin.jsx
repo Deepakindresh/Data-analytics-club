@@ -22,7 +22,8 @@ const SignIn = () => {
             //logged in, redirect
             history.push("/");
         })
-        .catch((e) => alert(e.message));        
+        .catch((e) => alert(e.message));    
+            
     }
 
   return (

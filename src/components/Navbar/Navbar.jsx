@@ -5,6 +5,8 @@ import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavLinks, NavItem, 
 import { animateScroll as scroll } from 'react-scroll';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './daclogo.png'
+import { useStateValue } from "../../StateProvider";
+import { auth,db } from "../../Firebase";
 
 const Navbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false)
@@ -15,6 +17,15 @@ const Navbar = ({ toggle }) => {
       setScrollNav(false)
     }
   }
+
+  const handleAuthenticaton = () => {
+    if (user) {
+      auth.signOut();
+    }
+  }
+
+
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     window.addEventListener('scroll', changeNav)
@@ -38,15 +49,13 @@ const Navbar = ({ toggle }) => {
               <NavLinks to='/News'
               >News</NavLinks>
             </NavItem>
-            <NavItem>
-              <NavLinks to='/JoinUs'
-              >Join Us</NavLinks>
-            </NavItem>
+
             <NavItem>
               <NavLinks to = '/Blog'
               
               >Blogs</NavLinks>
             </NavItem>
+            
             <NavItem>
               <NavLinks to='/AboutUs'
               
@@ -58,10 +67,21 @@ const Navbar = ({ toggle }) => {
               
               >Tasks</NavLinks>
             </NavItem>
+
+            <NavItem>
+              <NavLinks to = '/Teams'
+              
+              >Teams</NavLinks>
+            </NavItem>
+
+            <NavItem>
+              <NavLinks to='/JoinUs'
+              >Join Us</NavLinks>
+            </NavItem>
             
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+            <NavBtnLink to={!user && '/Signin'} onClick={handleAuthenticaton}>{!user ? 'Sign In' : 'Sign Out'}</NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>

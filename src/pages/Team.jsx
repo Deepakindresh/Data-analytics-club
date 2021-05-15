@@ -9,6 +9,7 @@ import HeadHunterImg from '../images/headhunters.png'
 import ExplorersImg from '../images/explorers.png'
 import AnalystsImg from '../images/analysts.png'
 
+
 export const Card = styled.div`
     margin-top : 80px;
     box-shadow : green;
@@ -151,7 +152,7 @@ const Team = () => {
         <div className = "Team">
             <Card>
                 <CardContainer>
-                    <CardServices>
+                    <CardServices >
                         <CardContents>
                             <CardHeaderContainer>
                                 <CardHeader>

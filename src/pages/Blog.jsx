@@ -92,7 +92,7 @@ export default function Blog2() {
         
           {/* End hero unit */}
           <Info {...Ourblog}/>
-          <div style={{backgroundColor: "black",marginTop:"-250px"}}>
+          <div style={{backgroundColor: "#010606",marginTop:"-250px"}}>
           <Container className={classes.cardGrid} maxWidth="md" >
           <Grid container spacing={10}>
             {cards.map((card) => (

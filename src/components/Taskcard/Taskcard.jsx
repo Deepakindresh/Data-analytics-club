@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
   },
   media: {
-    height: "100px",
+    height: 0,
     paddingTop: "56.25%", // 16:9
   },
   expand: {
@@ -53,6 +53,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "4px",
     margin: "50px",
   },
+
+  cardImage: {height:"auto", width:"370px"},
 }));
 
 export default function TaskCard() {
@@ -114,13 +116,7 @@ export default function TaskCard() {
             justifyContent: "space-between",
           }}
         >
-          <CardMedia
-            className={classes.media}
-            image="./Taskcovers/dataset-cover.jpg"
-            title="Iris Species"
-            height="100px"
-            
-          />
+          <img src={task1image} alt="Iris Plant" title="Iris Species Dataset" className={classes.cardImage}/>
           {/* Nitin Heres the div where u have to add it */}
           {taskdata.length && (
             <div>
@@ -132,6 +128,8 @@ export default function TaskCard() {
             </div>
           )}
         </div>
+
+        
 
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -211,11 +209,7 @@ export default function TaskCard() {
             justifyContent: "space-between",
           }}
         >
-          <CardMedia
-            className={classes.media}
-            image="./Taskcovers/dataset-cover2.jpg"
-            title="Vehicle dataset"
-          />
+          <img src={task2image} alt="Vehicles" title="Vehicles Dataset" className={classes.cardImage}/>
           {taskdata.length && (
             <div>
               <h1>{taskdata[1].Licences}</h1>
