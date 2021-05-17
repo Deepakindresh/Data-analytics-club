@@ -16,6 +16,7 @@ import {useStateValue} from './StateProvider'
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Team from './pages/Team'
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -97,6 +98,14 @@ function App() {
           <Team/>
           <Footer/>
         </Route>
+
+        <Route exact path = '/Profile' component={Profile}>
+          <Sidebar isOpen={isOpen} toggle={toggle} />
+          <Navbar/>
+          <Profile/>
+          <Footer/>
+        </Route>
+
 
         <Route exact path='/' component={Home}>
           <Sidebar isOpen={isOpen} toggle={toggle} />

@@ -117,3 +117,37 @@ export const Task = {
 };
 
 
+export const WeeklyNews = {
+  id: 'WeeklyNews',
+  lightBg: false,
+  lightText: true,
+  lighttextDesc: true,
+  topLine: 'Data Analytics Club',
+  headline: 'Your Weekly News',
+  description: 'Keep yourself updated on Top and Recent trends on Data Analytics.',
+  buttonLabel: 'Get started',
+  imgStart: false,
+  img: '/images/svg-1.svg',
+  alt: 'car',
+  dark: true,
+  primary: true,
+  darkText: false
+}
+
+
+export const Researchpapers = {
+  id: 'Researchpapers',
+  lightBg: true,
+  lightText: false,
+  lighttextDesc: false,
+  topLine: 'Data Analytics Club',
+  headline: 'Research Papers',
+  description: 'Find all the Top and Recently published papers!!!',
+  buttonLabel: 'Get Started',
+  imgStart: true,
+  img: '/images/svg-4.svg',
+  alt: 'Piggybanck',
+  dark: false,
+  primary: false,
+  darkText: true
+};

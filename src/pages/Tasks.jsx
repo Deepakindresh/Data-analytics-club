@@ -8,6 +8,7 @@ import Services from '../components/Services/Service';
 import Sidebar from '../components/SideBar/Sidebar'
 
 import TaskCard from '../components/Taskcard/Taskcard'
+import Jupyternb from '../components/Jupyternb/Jupyternb';
 import './Tasks.css'
 
 
@@ -23,6 +24,10 @@ function Tasks() {
 
             <div style={{backgroundColor:"lightgray"}}>
             <TaskCard/>
+            </div>
+
+            <div style={{backgroundColor:"#010606"}}>
+            <Jupyternb/>
             </div>
             
 

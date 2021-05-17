@@ -13,7 +13,7 @@ const News = () => {
   const [news,setNews] = useState([])
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/news?topic=%22dataanalytics%22')
+    axios.get('https://dac-api.herokuapp.com/news?topic=%22datascience%22')
     .then(
       res => {
 

@@ -17,18 +17,21 @@ const Blogs = () => {
       <BlogsH1>Blogs</BlogsH1>
       <BlogsWrapper>
         <BlogsCard>
-          <BlogsIcon src = ''/>
+          <BlogsIcon src = 'https://source.unsplash.com/random'/>
           <BlogsH2>Title 1</BlogsH2>
+          <BlogsH2>Description</BlogsH2>
           <Button >Learn More</Button>
         </BlogsCard>
         <BlogsCard>
-        <BlogsIcon src=''/>
+        <BlogsIcon src='https://source.unsplash.com/random'/>
         <BlogsH2>Title 2</BlogsH2>
+        <BlogsH2>Description</BlogsH2>
           <Button >Learn More</Button>
         </BlogsCard>
         <BlogsCard>
-          <BlogsIcon src=''/>
+          <BlogsIcon src='https://source.unsplash.com/random'/>
           <BlogsH2>Title 3</BlogsH2>
+          <BlogsH2>Description</BlogsH2>
           <Button >Learn More</Button>
         </BlogsCard>
       </BlogsWrapper>
