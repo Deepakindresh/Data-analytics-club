@@ -59,14 +59,17 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     height: '100%',
+    maxHeight: '400px',
     display: 'flex',
     flexDirection: 'column',
+    
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
   },
   cardContent: {
     flexGrow: 1,
+    overflowY: 'scroll'
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -100,14 +103,10 @@ export default function News() {
         
         const newNews = news.splice()
 
-        for(var i=0;i<3;i++)
+        for(var i=0;i<9;i++)
         {
-          newNews.push({title : res.data[i][0], img : res.data[i][1], content : res.data[i][2]})
+          newNews.push({title : res.data[i][0], img : res.data[i][1], content : res.data[i][2], newsNo: i})
         }
-
-        
-
-        
 
         // console.log(res.data[0][0]);
         setNews(newNews)
@@ -117,6 +116,11 @@ export default function News() {
 
     console.log(news)
   }, [])
+
+  const clickHandler = (num) => {
+    console.log("This is the number",num)
+    window.open(news[num].content)
+  }
 
   return (
     <React.Fragment>
@@ -131,24 +135,21 @@ export default function News() {
           <div style={{backgroundColor: "#010606",marginTop:"-250px"}}>
           <Container className={classes.cardGrid} maxWidth="md" >
           <Grid container spacing={10}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {news.map((newsIterator) => (
+              <Grid item xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image={newsIterator.img}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      Brief Description of News.
+                      {newsIterator.title}
                     </Typography>
                   </CardContent>
                   <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary"  onClick = {e => clickHandler(newsIterator.newsNo)}>
                       Learn More
                     </Button>
                     <div> 

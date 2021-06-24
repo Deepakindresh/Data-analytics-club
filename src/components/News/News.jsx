@@ -22,7 +22,7 @@ const News = () => {
         
         const newNews = news.splice()
 
-        for(var i=0;i<3;i++)
+        for(var i=0;i<4;i++)
         {
           newNews.push({title : res.data[i][0], img : res.data[i][1], content : res.data[i][2]})
         }
@@ -46,7 +46,7 @@ const News = () => {
   }
 
   const clickHandler2 = () => {
-    window.open(news[1].content)
+    window.open(news[3].content)
   }
 
   const clickHandler3 = () => {
@@ -64,8 +64,8 @@ const News = () => {
           <Button onClick = {e => clickHandler1(e)}>Learn More</Button>
         </NewsCard>
         <NewsCard>
-        <NewsIcon src={news[1].img}/>
-        <NewsH2>{news[1].title}</NewsH2>
+        <NewsIcon src={news[3].img}/>
+        <NewsH2>{news[3].title}</NewsH2>
           <Button onClick = {e => clickHandler2(e)}>Learn More</Button>
         </NewsCard>
         <NewsCard>
@@ -74,7 +74,8 @@ const News = () => {
           <Button onClick = {e => clickHandler3(e)}>Learn More</Button>
         </NewsCard>
       </NewsWrapper>
-      : <div>Woses</div>}
+      : <div>No News yet...</div>}
+      
     </NewsContainer>
   )
 }
