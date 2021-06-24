@@ -1,3 +1,4 @@
+import { divIcon } from 'leaflet'
 import React from 'react'
 import { Button } from '../ButtonElements'
 import { InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ImgWrap, Img } from './InfoElements'
@@ -13,7 +14,7 @@ const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, de
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
-                <BtnWrap>
+                {buttonLabel != "Nil" ? <BtnWrap>
                   <Button to='home'
                   smooth={true}
                   duration={500}
@@ -25,7 +26,7 @@ const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, de
                   dark2={dark2 ? 1 : 0}
                   >{buttonLabel}
                   </Button>
-                </BtnWrap>
+                </BtnWrap>: <div/>}
               </TextWrapper>
             </Column1>
             <Column2>

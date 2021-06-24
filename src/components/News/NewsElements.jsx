@@ -70,6 +70,7 @@ export const NewsH1 = styled.h1`
 export const NewsH2 = styled.h2`
   font-size: 1rem;
   margin-bottom: 10px;
+  overflow-y: 'scroll';
 `
 
 export const NewsP = styled.p`

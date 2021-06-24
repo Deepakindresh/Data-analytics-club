@@ -77,7 +77,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 export default function News() {
 
@@ -86,6 +85,8 @@ export default function News() {
   const classes = useStyles();
 
   const [isOpen, setIsOpen] = useState(false)
+
+  const [researchPapers,setResearchPapers] = useState([])
 
   const toggle = () =>{
     setIsOpen(!isOpen);
@@ -98,14 +99,11 @@ export default function News() {
     .then(
       res => {
 
-        console.log(res)
-
-        
         const newNews = news.splice()
 
         for(var i=0;i<9;i++)
         {
-          newNews.push({title : res.data[i][0], img : res.data[i][1], content : res.data[i][2], newsNo: i})
+          newNews.push({title : res.data[i][0], img : res.data[i][1], link : res.data[i][2], newsNo: i})
         }
 
         // console.log(res.data[0][0]);
@@ -117,9 +115,33 @@ export default function News() {
     console.log(news)
   }, [])
 
-  const clickHandler = (num) => {
-    console.log("This is the number",num)
-    window.open(news[num].content)
+  const clickHandler1 = (num) => {
+    window.open(news[num].link)
+  }
+
+  // For Research papers
+
+  
+
+  useEffect(() => {
+    axios.get('https://dac-api.herokuapp.com/papers').then(
+      res => {
+
+        const newPapers = researchPapers.slice()
+
+        for(var j=0;j<9;j++)
+        {
+          newPapers.push({title : res.data[j][0], description : res.data[j][1], link : res.data[j][2], paperNo: j})
+        }
+
+        setResearchPapers(newPapers)
+      }
+    )
+
+  }, []);
+
+  const clickHandler2 = (num) => {
+    window.open(researchPapers[num].link)
   }
 
   return (
@@ -149,7 +171,7 @@ export default function News() {
                     </Typography>
                   </CardContent>
                   <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-                    <Button size="small" color="primary"  onClick = {e => clickHandler(newsIterator.newsNo)}>
+                    <Button size="small" color="primary"  onClick = {e => clickHandler1(newsIterator.newsNo)}>
                       Learn More
                     </Button>
                     <div> 
@@ -169,26 +191,25 @@ export default function News() {
           <div style={{backgroundColor: "lightgray",marginTop:"-200px"}}>
             <Container className={classes.cardGrid} maxWidth="md" >
           <Grid container spacing={10}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {researchPapers.map((paper) => (
+              <Grid item xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      {paper.title}
                     </Typography>
                     <Typography>
-                      Brief Description of your Blog.
+                      {paper.description}
                     </Typography>
                   </CardContent>
                   <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary" onClick = {e => clickHandler2(paper.paperNo)}>
                       Learn More
                     </Button>
                     <div> 
                       <ShareIcon color="black" style={{marginRight: "10px"}}/>
                       <FavoriteBorderIcon/>
                     </div> 
-                    
                   </CardActions>
                 </Card>
               </Grid>
