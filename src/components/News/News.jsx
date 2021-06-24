@@ -19,15 +19,17 @@ const News = () => {
 
         console.log(res)
 
-        const n1 = {title : res.data[0][0], img : res.data[0][1], content : res.data[0][2]}
-        const n2 = {title : res.data[1][0], img : res.data[1][1], content : res.data[1][2]}
-        const n3 = {title : res.data[2][0], img : res.data[2][1], content : res.data[2][2]}
-
+        
         const newNews = news.splice()
 
-        newNews.push(n1)
-        newNews.push(n2)
-        newNews.push(n3)
+        for(var i=0;i<3;i++)
+        {
+          newNews.push({title : res.data[i][0], img : res.data[i][1], content : res.data[i][2]})
+        }
+
+        
+
+        
 
         // console.log(res.data[0][0]);
         setNews(newNews)

@@ -17,7 +17,7 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1>Welcome to DAC</HeroH1>
-        <HeroP>The one destination to hardcore Data Analytics</HeroP>
+        <HeroP>The one stop destination to hardcore Data Analytics</HeroP>
         <HeroBtnWrapper>
           <Button to='signup' onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'               smooth={true} duration={500} spy={true} exact='true' offset={-80}>
             Get Started {hover ? <ArrowForward /> : <ArrowRight/>}

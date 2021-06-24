@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -26,6 +26,9 @@ import { black } from 'chalk';
 import ShareIcon from '@material-ui/icons/Share';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ResearchpapersCard from '../components/Researchpapers/ResearchpaperCard';
+
+
+import axios from 'axios'
 
 function Copyright() {
   return (
@@ -71,9 +74,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 export default function News() {
+
+  const [news,setNews] = useState([])
+
   const classes = useStyles();
 
   const [isOpen, setIsOpen] = useState(false)
@@ -81,6 +87,36 @@ export default function News() {
   const toggle = () =>{
     setIsOpen(!isOpen);
   }
+
+  // From News
+
+  useEffect(() => {
+    axios.get('https://dac-api.herokuapp.com/news?topic=%22datascience%22')
+    .then(
+      res => {
+
+        console.log(res)
+
+        
+        const newNews = news.splice()
+
+        for(var i=0;i<3;i++)
+        {
+          newNews.push({title : res.data[i][0], img : res.data[i][1], content : res.data[i][2]})
+        }
+
+        
+
+        
+
+        // console.log(res.data[0][0]);
+        setNews(newNews)
+
+      }
+    )
+
+    console.log(news)
+  }, [])
 
   return (
     <React.Fragment>
@@ -108,7 +144,7 @@ export default function News() {
                       Heading
                     </Typography>
                     <Typography>
-                      Brief Description of your Blog.
+                      Brief Description of News.
                     </Typography>
                   </CardContent>
                   <CardActions style={{display: "flex", justifyContent: "space-between"}}>
