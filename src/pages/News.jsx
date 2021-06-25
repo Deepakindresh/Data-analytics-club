@@ -29,6 +29,7 @@ import ResearchpapersCard from '../components/Researchpapers/ResearchpaperCard';
 
 
 import axios from 'axios'
+import { LockSharp } from '@material-ui/icons';
 
 function Copyright() {
   return (
@@ -85,7 +86,7 @@ export default function News() {
   const classes = useStyles();
 
   const [isOpen, setIsOpen] = useState(false)
-
+  const [lock, setLock] = useState(false)
   const [researchPapers,setResearchPapers] = useState([])
 
   const toggle = () =>{
@@ -121,8 +122,6 @@ export default function News() {
 
   // For Research papers
 
-  
-
   useEffect(() => {
     axios.get('https://dac-api.herokuapp.com/papers').then(
       res => {
@@ -133,9 +132,11 @@ export default function News() {
         {
           newPapers.push({title : res.data[j][0], description : res.data[j][1], link : res.data[j][2], paperNo: j})
         }
-
-        setResearchPapers(newPapers)
+        if(!researchPapers.length){
+            setResearchPapers(newPapers)
+        }
       }
+
     )
 
   }, []);
