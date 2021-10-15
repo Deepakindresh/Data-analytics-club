@@ -7,14 +7,13 @@ import About from './pages/About'
 import News from './pages/News'
 import Tasks from './pages/Tasks'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Sidebar from './components/SideBar/Sidebar'
 import OurProject from './pages/OurProject'
+import { auth,db } from "./Firebase";
 
 import React, {useEffect,useState} from 'react';
-import {auth} from './Firebase'
 import {useStateValue} from './StateProvider'
 
-import Navbar from './components/Navbar/Navbar';
+
 import Footer from './components/Footer/Footer';
 import Team from './pages/Team'
 import Profile from './pages/Profile';
@@ -31,6 +30,49 @@ function App() {
   }
 
   const [{user}, dispatch] = useStateValue();
+  const [username,setUsername] = useState()
+  const [email,setEmail] = useState()
+  const [role,setRole] = useState()
+  const [dp,setDp] = useState()
+
+  async function getUser()
+    {
+        let CurrentAuthUser = await user
+
+        if(CurrentAuthUser == null)
+        {
+
+        }
+
+        else{
+
+            setDp(user.photoURL)
+            console.log(user)
+
+            var Userdetails = db.collection('user').doc(user.email).get()
+            console.log('demm',Userdetails)
+            Userdetails.then(res => {
+                console.log('res',res.data())
+                if(!res.data())
+                {
+                  db.collection('user').doc(user.email).set({
+                    email : user.email,
+                    username : user.displayName,
+                    role : "U"
+                })
+                }
+
+                setEmail(res.data().email)
+                setUsername(res.data().username)
+                setRole(res.data().role)
+                
+
+                
+            })
+        }
+    }
+
+    getUser()
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -82,8 +124,7 @@ function App() {
 
 
         <Route exact path = '/Tasks' component = {Tasks}>
-        <Tasks/>
-        <Footer/>
+        {role != 'U' && user != null?  <div> <Tasks/> <Footer/> </div>: <h1>Poda Bob</h1>}  
         </Route>
         
         <Route exact path = '/Teams' component={Team}>
@@ -103,6 +144,10 @@ function App() {
 
         <Route exact path = '/Blog/CreateBlog'>
           <CreateBlog/>
+          <Footer/>
+        </Route>
+
+        <Route exact path = '/Blog/CreateTask'>
           <Footer/>
         </Route>
 
