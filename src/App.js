@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from  'react-router-dom'
 import Home from './pages/Home';
-import SigninPage from './pages/SigninPage';
+import SigninPage from './pages/CreateEventPage';
 import Blog from './pages/Blog'
 import About from './pages/About'
 import News from './pages/News'
@@ -18,6 +18,9 @@ import Footer from './components/Footer/Footer';
 import Team from './pages/Team'
 import Profile from './pages/Profile';
 import CreateBlog from './components/CreateBlog/CreateBlog';
+import CreateEvent from './CreateEvent/CreateEventPage';
+import CreateEventPage from './pages/CreateEventPage';
+
 
 
 function App() {
@@ -55,16 +58,24 @@ function App() {
                 console.log('res',res.data())
                 if(!res.data())
                 {
+                  console.log("Inside if ",res.data())
                   db.collection('user').doc(user.email).set({
                     email : user.email,
                     username : user.displayName,
                     role : "U"
                 })
+
                 }
 
-                setEmail(res.data().email)
-                setUsername(res.data().username)
-                setRole(res.data().role)
+                else{
+
+                  setEmail(res.data().email)
+                  setUsername(res.data().username)
+                  setRole(res.data().role)
+
+                }
+
+                
                 
 
                 
@@ -103,7 +114,7 @@ function App() {
       <Router>
       <Switch>
         
-        <Route exact path='/Signin' component={SigninPage}/>
+        <Route exact path='/CreateEvent' component={CreateEventPage}/>
 
 
         <Route exact path = '/Blog' component = {Blog}>
@@ -144,10 +155,6 @@ function App() {
 
         <Route exact path = '/Blog/CreateBlog'>
           <CreateBlog/>
-          <Footer/>
-        </Route>
-
-        <Route exact path = '/Blog/CreateTask'>
           <Footer/>
         </Route>
 
