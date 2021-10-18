@@ -6,6 +6,7 @@ import Blog from './pages/Blog'
 import About from './pages/About'
 import News from './pages/News'
 import Tasks from './pages/Tasks'
+import Events from './pages/Events';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OurProject from './pages/OurProject'
 import { auth,db } from "./Firebase";
@@ -114,7 +115,13 @@ function App() {
       <Router>
       <Switch>
         
-        <Route exact path='/CreateEvent' component={CreateEventPage}/>
+
+        <Route exact path = '/Events' component={Events}>
+          <Events/>
+          <Footer/>
+        </Route>
+
+        <Route exact path='/Events/CreateEvent' component={CreateEventPage}/>
 
 
         <Route exact path = '/Blog' component = {Blog}>

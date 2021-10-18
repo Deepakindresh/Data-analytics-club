@@ -1,0 +1,7 @@
+.Events
+{
+    display : flex;
+    flex-direction: column;
+    background-color: #010606;
+    padding-bottom: 200px;
+}
