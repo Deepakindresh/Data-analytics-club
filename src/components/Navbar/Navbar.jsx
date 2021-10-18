@@ -82,9 +82,9 @@ const Navbar = ({ toggle }) => {
             </NavItem>
 
             <NavItem>
-              <NavLinks to = '/Tasks'
+              <NavLinks to = '/Events'
               
-              >Tasks</NavLinks>
+              >Events</NavLinks>
             </NavItem>
 
 

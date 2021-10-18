@@ -18,6 +18,7 @@ import Footer from './components/Footer/Footer';
 import Team from './pages/Team'
 import Profile from './pages/Profile';
 import CreateBlog from './components/CreateBlog/CreateBlog';
+import Events from './pages/Events';
 
 
 function App() {
@@ -123,8 +124,13 @@ function App() {
         </Route>
 
 
-        <Route exact path = '/Tasks' component = {Tasks}>
+        {/* <Route exact path = '/Tasks' component = {Tasks}>
         {role != 'U' && user != null?  <div> <Tasks/> <Footer/> </div>: <h1>Poda Bob</h1>}  
+        </Route> */}
+
+        <Route exact path = '/Events' component={Team}>
+          <Events/>
+          <Footer/>
         </Route>
         
         <Route exact path = '/Teams' component={Team}>
