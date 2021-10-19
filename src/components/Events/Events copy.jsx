@@ -67,6 +67,7 @@ export const EventRegisterButton = styled.button`
 
 const Events = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [events, setEvents] = useState([])
     
 
     const toggle = () =>{
@@ -74,52 +75,38 @@ const Events = () => {
     setIsOpen(!isOpen);
     }
 
+    useEffect(() => {
+
+        getEvents()
+        
+    }, [])
 
 
-  function getEvents() {
+
+    function getEvents() {
         
     
         db.collection('Events').get().then(doc => {
-
+            const filteredEvents = events.splice()
             doc.forEach((ref) => {
                 // setEvents([...events,ref.data()])
                 var imagePath = 'Event_Posters/'.concat(ref.data().Image_name)
                 storage.ref(imagePath).getDownloadURL().then((url) => {   
-                    // filteredEvents.push([ref.data(),url]);   
-                    console.log("this is inside storage ",[ref.data(),url])
-                    return(
-                        <div>
-                            <EventsContainer>
-                                <EventLeft>
-                                    <EventName>{ref.data().Event_name}</EventName>
-                                    <EventRegisterButton>Register Now</EventRegisterButton>
-                                </EventLeft>
-
-                                <EventRight>
-                                    <EventPhoto src = {url}/>
-                                </EventRight>
-                    
-                            </EventsContainer>
-                        </div>
-                             
-                    )
-                })     
+                    filteredEvents.push([ref.data(),url]);        
                 })
-            
-            });
+                
+                console.log(ref.id, '=>', ref.data());
+                console.log('filtered events',filteredEvents);
+
+                
+              });
+              setEvents(filteredEvents)
+              
+        });
 
 
         
         
-    }
-
-
-    function summa(){
-        return (
-            <h1>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro, eum quisquam? Obcaecati, optio voluptatem corrupti nemo alias minima sed magnam odit ea, impedit fuga eum illum id aspernatur, molestias autem.
-            </h1>
-        )
     }
 
     
@@ -130,9 +117,25 @@ const Events = () => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
 
-           {
-               getEvents()
-           }
+            {
+                events.map((eventIndex,index) => {
+
+                    
+                    return(
+                        <EventsContainer>
+                            <EventLeft>
+                                <EventName>{eventIndex[0].Event_name}</EventName>
+                                <EventRegisterButton>Register Now</EventRegisterButton>
+                            </EventLeft>
+
+                            <EventRight>
+                                <EventPhoto src = {eventIndex[1]}/>
+                            </EventRight>
+                
+                        </EventsContainer>     
+                    )})
+                
+            }
             
         </div>
     )
