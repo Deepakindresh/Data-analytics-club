@@ -6,7 +6,7 @@ import Blog from './pages/Blog'
 import About from './pages/About'
 import News from './pages/News'
 import Tasks from './pages/Tasks'
-import Events from './pages/Events';
+import EventsPage from './pages/EventsPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OurProject from './pages/OurProject'
 import { auth,db } from "./Firebase";
@@ -19,7 +19,7 @@ import Footer from './components/Footer/Footer';
 import Team from './pages/Team'
 import Profile from './pages/Profile';
 import CreateBlog from './components/CreateBlog/CreateBlog';
-import CreateEvent from './CreateEvent/CreateEventPage';
+import CreateEvent from './components/CreateEvent/CreateEventPage';
 import CreateEventPage from './pages/CreateEventPage';
 
 
@@ -84,12 +84,13 @@ function App() {
         }
     }
 
-    getUser()
+    
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if(authUser){
         //User is logged in
+        getUser()
         dispatch({
           type: "SET_USER",
           user: authUser,
@@ -116,8 +117,8 @@ function App() {
       <Switch>
         
 
-        <Route exact path = '/Events' component={Events}>
-          <Events/>
+        <Route exact path = '/Events' component={EventsPage}>
+          <EventsPage/>
           <Footer/>
         </Route>
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Navbar from '../components/Navbar/Navbar'
-import Sidebar from '../components/SideBar/Sidebar'
-import { useState } from 'react'
+import Navbar from '../../components/Navbar/Navbar'
+import Sidebar from '../../components/SideBar/Sidebar'
+import { useState, useEffect } from 'react'
+import {storage,db} from '../../Firebase'
 import "./Events.css"
 
 
@@ -66,11 +67,41 @@ export const EventRegisterButton = styled.button`
 
 const Events = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [events, setEvents] = useState([])
+    
 
     const toggle = () =>{
     console.log("Button is clicked");
     setIsOpen(!isOpen);
     }
+
+    useEffect(() => {
+
+        getEvents()
+        console.log("events array inside useEffect()",events)
+        
+    }, [])
+
+    function getEvents() {
+        
+    
+        db.collection('Events').get().then(doc => {
+            console.log("These are the documents ",doc)
+            const filteredEvents = events.splice()
+            doc.forEach((ref) => {
+                // setEvents([...events,ref.data()])
+                filteredEvents.push(ref.data());
+                console.log(ref.id, '=>', ref.data());
+              });
+              setEvents(filteredEvents)
+        });
+        
+        
+    }
+
+    
+    
+
     return (
         <div className = "Events">
             <Sidebar isOpen={isOpen} toggle={toggle}/>
@@ -87,17 +118,27 @@ const Events = () => {
                 
             </EventsContainer>
 
-            <EventsContainer>
-                <EventLeft>
-                    <EventName>DataHub 2.0</EventName>
-                    <EventRegisterButton>Register Now</EventRegisterButton>
-                </EventLeft>
+            {
+                events.map((eventIndex) => {
 
-                <EventRight>
-                    <EventPhoto src = 'https://cdn.discordapp.com/attachments/841677335316398094/897497009559306290/DataHub_2.0_Poster.png'/>
-                </EventRight>
+                    console.log("This is eventindices inside renderer ",eventIndex)
+                    
+                    return(
+                        <EventsContainer>
+                            <EventLeft>
+                                <EventName>{eventIndex.Event_name}</EventName>
+                                <EventRegisterButton>Register Now</EventRegisterButton>
+                            </EventLeft>
+
+                            <EventRight>
+                                <EventPhoto src = 'https://cdn.discordapp.com/attachments/841677335316398094/897497009559306290/DataHub_2.0_Poster.png'/>
+                            </EventRight>
                 
-            </EventsContainer>
+                        </EventsContainer>     
+                    )})
+                
+            }
+            
         </div>
     )
 }

@@ -5,10 +5,10 @@ import {Link, useHistory } from "react-router-dom"
 
 
 
-import Logo from '../images/daclogo.png';
+import Logo from '../../images/daclogo.png';
 
 
-import {storage,db} from '../Firebase'
+import {storage,db} from '../../Firebase'
 
 const CreateEvent = () => {
 
