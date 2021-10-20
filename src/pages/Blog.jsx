@@ -1,45 +1,18 @@
 import React, {useState} from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 
-import Footer from '../components/Footer/Footer';
-import Hero from '../components/Hero/Hero'
+
 import Info from '../components/Info/Info'
-import { homeObjOne, homeObjTwo, homeObjThree, Blogpage, Ourblog, Writeblog} from '../components/Info/Data';
+import {Ourblog, Writeblog} from '../components/Info/Data';
 import Navbar from '../components/Navbar/Navbar'
-import Services from '../components/Services/Service';
 import Sidebar from '../components/SideBar/Sidebar'
-import { black } from 'chalk';
 
-import ShareIcon from '@material-ui/icons/Share';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import {BlogsCard, BlogsIcon, BlogsH2} from '../components/BlogsHome/BlogsHomeElements'
 
-import {BlogsContainer, BlogsH1, BlogsWrapper, BlogsCard, BlogsIcon, BlogsH2, BlogsP} from '../components/BlogsHome/BlogsHomeElements'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   icon: {

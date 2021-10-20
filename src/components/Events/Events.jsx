@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/SideBar/Sidebar'
 import { useState, useEffect } from 'react'
-import {storage,db} from '../../Firebase'
+import {db} from '../../Firebase'
 import "./Events.css"
 
 

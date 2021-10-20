@@ -1,10 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import Icon1 from '../../images/svg-1.svg'
-import Icon2 from '../../images/svg-2.svg'
-import {ServicesContainer, ServicesH1, ServicesWrapper, ServicesCard, ServicesIcon, ServicesH2, ServicesP} from './ServiceElements'
+import {ServicesContainer, ServicesH1, ServicesWrapper, ServicesCard, ServicesIcon, ServicesH2} from './ServiceElements'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-import { FaNewspaper } from 'react-icons/fa'
+
 import {Button} from '../ButtonElements'
 
 const Services = () => {

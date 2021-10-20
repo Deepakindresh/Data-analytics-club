@@ -1,11 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import Icon1 from '../../images/svg-1.svg'
-import Icon2 from '../../images/svg-2.svg'
-import {NewsContainer, NewsH1, NewsWrapper, NewsCard, NewsIcon, NewsH2, NewsP, NewsButton, NewsHeading} from './NewsElements'
+import {NewsContainer, NewsWrapper, NewsCard, NewsIcon, NewsH2, NewsHeading} from './NewsElements'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-import { FaNewspaper } from 'react-icons/fa'
-import {Button} from '../ButtonElements'
+
 
 const News = () => {
 

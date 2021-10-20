@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './CreateEventElements'
-import {Link, useHistory } from "react-router-dom"
+import React, {useState} from 'react'
+import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton} from './CreateEventElements'
+import {useHistory } from "react-router-dom"
 
 
 

@@ -1,8 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { auth,db } from "../Firebase";
 import { useStateValue } from "../StateProvider";
-import {Link as LinkR} from 'react-router-dom'
 import './Profile.css'
 
 const MyProfileContainer = styled.div`
@@ -38,28 +36,11 @@ const MyProfileImg = styled.img`
     height : 70%;
 `
 
-const MyProfileYear = styled.div`
-    font-size : 1.2rem;
-    font-family : sans-serif;
-    margin-top : 20px;
-    color : white;
-`
-const MyProfileLinks = styled(LinkR)`
-    font-size : 1.2rem;
-    font-family : sans-serif;
-    margin-top : 20px;
-    color : white;
-`
-
-
-
 
 
 const Profile = () => {
 
     const [{ user }, dispatch] = useStateValue();
-    const [username,setUsername] = useState()
-    const [email,setEmail] = useState()
 
     
 

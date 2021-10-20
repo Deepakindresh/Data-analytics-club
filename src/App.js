@@ -1,7 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from  'react-router-dom'
 import Home from './pages/Home';
-import SigninPage from './pages/CreateEventPage';
 import Blog from './pages/Blog'
 import About from './pages/About'
 import News from './pages/News'
@@ -19,7 +18,6 @@ import Footer from './components/Footer/Footer';
 import Team from './pages/Team'
 import Profile from './pages/Profile';
 import CreateBlog from './components/CreateBlog/CreateBlog';
-import CreateEvent from './components/CreateEvent/CreateEventPage';
 import CreateEventPage from './pages/CreateEventPage';
 
 

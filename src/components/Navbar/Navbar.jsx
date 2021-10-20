@@ -3,7 +3,6 @@ import { FaBars } from 'react-icons/fa'
 import {IconContext} from 'react-icons/lib'
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavLinks, NavItem, NavBtn, NavBtnLink, NavProfile, NavPhoto, NavName, NavRight, NavUser, Select} from './NavbarElements'
 import { animateScroll as scroll } from 'react-scroll';
-import { NavLink, Link } from 'react-router-dom';
 import Logo from './daclogo.png'
 import { useStateValue } from "../../StateProvider";
 import { auth,firebase } from "../../Firebase";
