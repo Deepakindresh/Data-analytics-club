@@ -8,37 +8,30 @@ import {Link, useHistory } from "react-router-dom"
 import Logo from '../../images/daclogo.png';
 
 
-import {storage,db} from '../../Firebase'
+import {db} from '../../Firebase'
 
 const CreateEvent = () => {
 
   const history = useHistory();
   const [eventname,setEventname] = useState();
-  const [imagefile,setImagefile] = useState(null);
+  const [imagelink,setImagelink] = useState(null);
   const [discord, setDiscord] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [registerlink, setRegisterlink] = useState("");
-  const storageRef = storage.ref();
 
-  useEffect(() => {
-    console.log("Image file is ready", imagefile);
-}, [imagefile]);
+ 
 
   const handleUpload = () => {
     alert('Uploading Please Wait...')
     db.collection('Events').doc(eventname).set({
       Event_name : eventname,
-      Image_name: imagefile.name,
+      Poster_link: imagelink,
       Registration_link: registerlink,
       Discord_link: discord,
       Whatsapp_link: whatsapp
+  }).then(() => {
+    alert('Uploaded Successfully')
   })
-    let imageDirectory = 'Event_Posters/'.concat(imagefile.name);
-    const imageRef = storageRef.child(imageDirectory)
-    imageRef.put(imagefile)
-    .then(() => {
-      alert('Uploaded Successfully')
-    })
   }
 
   return (
@@ -57,8 +50,8 @@ const CreateEvent = () => {
                 <FormInput htmlFor='text' value={discord} type="text" onChange = {event => setDiscord(event.target.value)}/>
               <FormLabel htmlFor='text'>Whatsapp Link</FormLabel>
                 <FormInput htmlFor='text' value={whatsapp} type="text" onChange = {event => setWhatsapp(event.target.value)}/>
-              <FormLabel htmlFor='text'>Poster Image</FormLabel>
-                <FormInput htmlFor='img' type="file" onChange = {e => setImagefile(e.target.files[0])}/>
+              <FormLabel htmlFor='text'>Poster Image Link</FormLabel>
+              <FormInput htmlFor='text' value={imagelink} type="text" onChange = {event => setImagelink(event.target.value)}/>
               <FormButton type='submit' onClick = {handleUpload}>Continue</FormButton>
             </Form>
           </FormContent>

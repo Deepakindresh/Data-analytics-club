@@ -106,17 +106,6 @@ const Events = () => {
         <div className = "Events">
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <EventsContainer>
-                <EventLeft>
-                    <EventName>DataHub 2.0</EventName>
-                    <EventRegisterButton>Register Now</EventRegisterButton>
-                </EventLeft>
-
-                <EventRight>
-                    <EventPhoto src = 'https://cdn.discordapp.com/attachments/841677335316398094/897497009559306290/DataHub_2.0_Poster.png'/>
-                </EventRight>
-                
-            </EventsContainer>
 
             {
                 events.map((eventIndex) => {
@@ -131,7 +120,7 @@ const Events = () => {
                             </EventLeft>
 
                             <EventRight>
-                                <EventPhoto src = 'https://cdn.discordapp.com/attachments/841677335316398094/897497009559306290/DataHub_2.0_Poster.png'/>
+                                <EventPhoto src = {eventIndex.Poster_link}/>
                             </EventRight>
                 
                         </EventsContainer>     
