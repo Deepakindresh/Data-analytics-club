@@ -13,7 +13,7 @@ import Sidebar from '../components/SideBar/Sidebar'
 
 
 
-import { NewsH1,  NewsCard, NewsIcon, NewsH2 } from '../components/News/NewsElements';
+import { NewsH1,  NewsCard, NewsIcon} from '../components/News/NewsElements';
 
 import axios from 'axios'
 
@@ -138,7 +138,7 @@ export default function News() {
               <Grid item xs={12} sm={6} md={4}>
                 <NewsCard onClick = {e => clickHandler1(newsIterator.newsNo)}>
                   <NewsIcon src = {newsIterator.img}/>
-                  <NewsH2>{newsIterator.title}</NewsH2>
+                  <NewsH1>{newsIterator.title}</NewsH1>
                 </NewsCard>
                 {/* <Card className={classes.card}>
                   <CardMedia
