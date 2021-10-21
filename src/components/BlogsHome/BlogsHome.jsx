@@ -1,37 +1,49 @@
 import React,{useState,useEffect} from 'react'
-import Icon1 from '../../images/svg-1.svg'
-import Icon2 from '../../images/svg-2.svg'
-import {NewsContainer, NewsH1, NewsWrapper, NewsCard, NewsIcon, NewsH2, NewsP, NewsHeading} from '../News/NewsElements'
+
+import {NewsContainer, NewsWrapper, NewsCard, NewsIcon, NewsH2, NewsHeading} from '../News/NewsElements'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-import { FaNewspaper } from 'react-icons/fa'
-import {Button} from '../ButtonElements'
+
 
 const Blogs = () => {
 
 
-  const [news,setNews] = useState([])
+  const [blogs, setBlogs] = useState([])
+
+  useEffect(() => {
+    axios.get('https://dac-api.herokuapp.com/blogs').then(
+      res => {
+        
+        const newBlogs = blogs.splice()
+
+        for(var i=0;i<res.data.length;i++)
+        {
+          newBlogs.push({title : res.data[i].title, img : res.data[i].img, readTime : res.data[i].readtime, blogNo: i, link : res.data[i].link})
+        }
+
+        setBlogs(newBlogs)
+        
+      }
+    )
+    console.log("From medium",blogs)
+  },[])
+
+  const clickHandler1 = (link) => {
+    window.open(link)
+  }
 
   return (
     <NewsContainer id='Blogs'>
       <NewsHeading>Blogs</NewsHeading>
-      <NewsWrapper>
-        <NewsCard>
-          <NewsIcon src= 'https://source.unsplash.com/random'/>
-          <NewsH2>Title 1</NewsH2>
+
+      {blogs.length ? <NewsWrapper>
+        {blogs.map((blog) => (<NewsCard onClick = {e => clickHandler1(blog.link)}>
+          <NewsIcon src={blog.img}/>
+          <NewsH2>{blog.title}</NewsH2>
           {/* <NewsButton onClick = {e => clickHandler1(e)}>Learn More</NewsButton> */}
-        </NewsCard>
-        <NewsCard>
-        <NewsIcon src= 'https://source.unsplash.com/random'/>
-        <NewsH2>Ttile 2</NewsH2>
-          {/* <NewsButton onClick = {e => clickHandler2(e)}>Learn More</NewsButton> */}
-        </NewsCard>
-        <NewsCard>
-          <NewsIcon src='https://source.unsplash.com/random'/>
-          <NewsH2>Title 3 ddddddddddddd dddddddddd dd</NewsH2>
-          {/* <NewsButton onClick = {e => clickHandler3(e)}>Learn More</NewsButton> */}
-        </NewsCard>
+        </NewsCard>))}
+        
       </NewsWrapper>
+      : <div>The page is loading, please wait...</div>}
       
     </NewsContainer>
   )
