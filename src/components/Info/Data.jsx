@@ -10,7 +10,6 @@ import jn from "../../images/joinus.svg"
 
 
 
-
 export const Join = {
   id: 'Join Us',
   lightBg: true,

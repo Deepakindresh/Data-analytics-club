@@ -26,8 +26,10 @@ export const FooterLinkContainer = styled.div`
 export const FooterLinkWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  // background-color: red;
   @media screen and (max-width: 820px) {
     flex-direction: column;
+    justify-content: space-between;
   }
 `
 export const FooterLinkItems = styled.div`
@@ -38,7 +40,7 @@ export const FooterLinkItems = styled.div`
   text-align: left;
   width: 160px;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-self: space-between;
   color: #fff;
 
   @media screen and (max-width: 420px) {
