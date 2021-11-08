@@ -113,6 +113,7 @@ export const EventRegisterButton = styled.button`
 
 export const EventRegisterButton1 = styled.button`
 
+    display : none;
     @media (max-width: 1024px) {
         border-radius: 50px;
         background: #01bf71;
