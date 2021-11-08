@@ -18,6 +18,18 @@ export const EventsContainer = styled.div`
     justify-content : space-around;
     justify-self : flex-start;
     
+    @media (max-width: 1366px) {
+        flex-direction : column;
+        justify-content : center;
+        align-items : center;
+        justify-content : space-around;
+        justify-self : center;
+    }
+
+    @media (max-width: 768px) {
+        display : flex;
+        flex-direction : column;
+    }
 `
 
 export const EventLeft = styled.div`
@@ -27,23 +39,48 @@ export const EventLeft = styled.div`
     justify-content : space-between;
     align-items : stretch;
     height : 10rem;
+
+    @media (max-width: 1366px) {
+        height : auto;
+        flex-direction : row;
+        justify-content : space-between;
+        align-items : center;
+    }
 `
 
 export const EventRight = styled.div`
     display : flex;
     flex-direction : column;
     padding-left : 2rem;
+
+    @media (max-width: 1366px) {
+        padding-left : 0rem;
+    }
 `
 
 export const EventName = styled.div`
     font-size : 2rem;
     font-weight : bold;
     color : white;
+
+    @media (max-width: 1366px) {
+        font-size : 1.5rem;
+    }
 `
 
 export const EventPhoto = styled.img`
     width : 50rem;
     height : 60rem;
+
+    @media (max-width: 1366px) {
+        width : 30rem;
+        height : 40rem;
+    }
+
+    @media (max-width: 640px) {
+        width : 20rem;
+        height : 30rem;
+    }
 `
 
 export const EventRegisterButton = styled.button`
@@ -62,6 +99,39 @@ export const EventRegisterButton = styled.button`
         transition: all 0.2s ease-in-out;
         background: #fff;
         color: #010606;
+    }
+
+    @media (max-width: 1366px) {
+        display : none;
+    }
+
+    @media (max-width: 1024px) {
+        display : none;
+
+    }
+`
+
+export const EventRegisterButton1 = styled.button`
+
+    @media (max-width: 1024px) {
+        border-radius: 50px;
+        background: #01bf71;
+        white-space: nowrap;
+        padding: 10px 22px;
+        color: #010606;
+        font-size: 16px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        margin-top : 1rem;
+        &:hover {
+            transition: all 0.2s ease-in-out;
+            background: #fff;
+            color: #010606;
+        }
+
     }
 `
 
@@ -121,6 +191,7 @@ const Events = () => {
 
                             <EventRight>
                                 <EventPhoto src = {eventIndex.Poster_link}/>
+                                <EventRegisterButton1>Register Now</EventRegisterButton1>
                             </EventRight>
                 
                         </EventsContainer>     
