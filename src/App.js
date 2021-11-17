@@ -31,6 +31,8 @@ function App() {
     setIsOpen(!isOpen);
   }
 
+  //Usestates
+
   const [{user}, dispatch] = useStateValue();
   const [username,setUsername] = useState()
   const [email,setEmail] = useState()
