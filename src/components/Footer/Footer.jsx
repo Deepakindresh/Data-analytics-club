@@ -20,9 +20,9 @@ const Footer = () => {
           <FooterLinkWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Who We Are</FooterLinkTitle>
-                <FooterLink to='/'>About Us</FooterLink>
+                <FooterLink to='/AboutUs'>About Us</FooterLink>
                 <FooterLink to='/'>Our Team</FooterLink>
-                <FooterLink to='/'>Blog</FooterLink>
+                <FooterLink to='/Blog'>Blog</FooterLink>
                 <FooterLink to='/'>Contact</FooterLink>
                 
             </FooterLinkItems>

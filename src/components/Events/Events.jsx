@@ -4,6 +4,8 @@ import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/SideBar/Sidebar'
 import { useState, useEffect } from 'react'
 import {db} from '../../Firebase'
+import { Link as LinkR } from 'react-router-dom'
+import { useStateValue } from "../../StateProvider";
 import "./Events.css"
 
 
@@ -136,10 +138,48 @@ export const EventRegisterButton1 = styled.button`
     }
 `
 
+export const EventAddButton = styled(LinkR)`
+
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    position: sticky;
+    bottom:5%;
+    left:95%;
+    z-index:10;
+    background: #01bf71;
+    white-space: nowrap;
+    color: #010606;
+    font-size: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: #fff;
+        color: #010606;
+    }
+
+    @media (max-width: 1366px) {
+        display : none;
+    }
+
+    @media (max-width: 1024px) {
+        display : none;
+
+    }
+`
+
+
 const Events = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [events, setEvents] = useState([])
-    
+    const [{ role }, dispatch] = useStateValue();
 
     const toggle = () =>{
     console.log("Button is clicked");
@@ -170,8 +210,6 @@ const Events = () => {
         
     }
 
-    
-    
 
     return (
         <div className = "Events">
@@ -181,7 +219,7 @@ const Events = () => {
             {
                 events.map((eventIndex) => {
 
-                    console.log("This is eventindices inside renderer ",eventIndex)
+                    console.log("This is event indices inside renderer ",eventIndex)
                     
                     return(
                         <EventsContainer>
@@ -199,7 +237,11 @@ const Events = () => {
                     )})
                 
             }
+                {role != 'U' && role != 'M'? <EventAddButton to="/Events/CreateEvent">+</EventAddButton> : <div/>}
+                
+
             
+
         </div>
     )
 }

@@ -4,8 +4,7 @@ import Events from '../components/Events/Events';
 function EventsPage() {
     return (
         <div>
-            <Events>
-            </Events>
+            <Events/>
         </div>
     )
 }

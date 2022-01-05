@@ -24,7 +24,8 @@ export const Join = {
   alt: 'Join us',
   dark: false,
   primary: false,
-  darkText: true
+  darkText: true,
+  link: 'JoinUs'
 };
 
 
@@ -42,7 +43,8 @@ export const About = {
   img: abt,
   alt: 'about us',
   primary: false,
-  darkText: true
+  darkText: true,
+  link: 'AboutUs'
 };
 
 export const Ourblog = {
@@ -87,15 +89,57 @@ export const Aboutus = {
   lighttextDesc: true,
   topLine: 'Data Analytics Club',
   headline: 'About Us',
-  description: "VIT Chennai presents you its very first Data Analytics Club. Want a new way into life and the world of technology ? - Data Analysis is the solution. As a new club, we welcome you to join ourfamily,fillthe forms right away and get a chance to lead teams of your choice! At DAC we aim to provide resources to members curious about the sector of data analytics. Students also will learn the data analyticstools, concepts, and trends, and impacts into various domains like business, healthcare, and engineering applications. Students will have the opportunity to express theirtalents in a creative manner and explore opportunities in the realm of data analytics with the help of professionals guiding them.",
+  description: "VIT Chennai presents you its very first Data Analytics Club. Want a new way into life and the world of technology ? - Data Analysis is the solution. As a new club, we welcome you to join ourfamily,fillthe forms right away and get a chance to lead teams of your choice! At DAC we aim to provide resources to members curious about the sector of data analytics. Students also will learn the data analytics tools, concepts, and trends, and impacts into various domains like business, healthcare, and engineering applications. Students will have the opportunity to express their talents in a creative manner and explore opportunities in the realm of data analytics with the help of professionals guiding them.",
   buttonLabel: 'Become a member',
   imgStart: false,
   img: abt,
   alt: 'about us',
   dark: true,
   primary: true,
-  darkText: false
+  darkText: false,
+  link: 'JoinUs'
 };
+
+export const Joinus = {
+  id: 'Joinus',
+  lightBg: false,
+  lightText: true,
+  lighttextDesc: true,
+  topLine: 'Data Analytics Club',
+  headline: 'Join Us',
+  description: "Currently not taking in members...",
+  buttonLabel: 'Nil',
+  imgStart: false,
+  img: abt,
+  alt: 'join us',
+  dark: true,
+  primary: true,
+  darkText: false,
+};
+
+
+
+
+export const JoinusMember = {
+  id: 'Joinus',
+  lightBg: false,
+  lightText: true,
+  lighttextDesc: true,
+  topLine: 'Data Analytics Club',
+  headline: 'Join Us',
+  description: "You are already a member of the club.",
+  buttonLabel: 'Nil',
+  imgStart: false,
+  img: abt,
+  alt: 'join us',
+  dark: true,
+  primary: true,
+  darkText: false,
+  
+};
+
+
+
 
 export const Task = {
   id: 'tasks',
@@ -166,5 +210,6 @@ export const OurProjects = {
   alt: 'Projects',
   dark: true,
   primary: true,
-  darkText: false
+  darkText: false,
+  link2: 'https://github.com/orgs/Data-Analytics-Club-VITCC/repositories'
 }

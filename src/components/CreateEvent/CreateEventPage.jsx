@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton} from './CreateEventElements'
-import {useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 
 
@@ -18,7 +18,7 @@ const CreateEvent = () => {
   const [discord, setDiscord] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [registerlink, setRegisterlink] = useState("");
-
+  
  
 
   const handleUpload = () => {
@@ -31,7 +31,7 @@ const CreateEvent = () => {
       Whatsapp_link: whatsapp
   }).then(() => {
     alert('Uploaded Successfully')
-  })
+  }).then(history.push("/Events"))
   }
 
   return (

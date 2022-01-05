@@ -2,7 +2,13 @@ import React from 'react'
 import { Button } from '../ButtonElements'
 import { InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ImgWrap, Img } from './InfoElements'
 
-const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, description, buttonLabel, alt, img, primary, dark, dark2 }) => {
+const clickHandler = (link) => {
+  console.log(link);
+  window.open(link)
+}
+
+
+const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, description, buttonLabel, alt, img, primary, dark, dark2, link, link2}) => {
   return (
     <>
       <InfoContainer lightBg={lightBg} id={id}>
@@ -14,7 +20,7 @@ const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, de
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 {buttonLabel != "Nil" ? <BtnWrap>
-                  <Button to='home'
+                  {link ? <Button to={link}
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -24,7 +30,19 @@ const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, de
                   dark={dark ? 1 : 0}
                   dark2={dark2 ? 1 : 0}
                   >{buttonLabel}
-                  </Button>
+                  </Button>:
+                  <Button
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact='true'
+                  offset={-80}
+                  primary={primary ? 1 : 0}
+                  dark={dark ? 1 : 0}
+                  dark2={dark2 ? 1 : 0}
+                  onClick = {e => clickHandler(link2)}
+                  >{buttonLabel}
+                  </Button>}
                 </BtnWrap>: <div/>}
               </TextWrapper>
             </Column1>

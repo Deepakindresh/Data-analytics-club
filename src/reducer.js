@@ -1,6 +1,7 @@
 
 export const initialState = {
-    user: null
+    user: null,
+    role: "U",
     
 };
 
@@ -12,6 +13,7 @@ const reducer = (state,action) => {
             return {
                 ...state,
                 user: action.user,
+                role: action.role,
             }
         
         

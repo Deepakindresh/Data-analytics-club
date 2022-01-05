@@ -121,14 +121,15 @@ const Navbar = ({ toggle }) => {
               <NavBtnLink  onClick={handleAuthenticaton}>{!user? 'Sign In' : 'Sign Out'}</NavBtnLink>
             </NavBtn> : 
             <NavProfile>
+              
+              <NavBtn>
+                <NavBtnLink  onClick={handleAuthenticaton}>{!user? 'Sign In' : 'Sign Out'}</NavBtnLink>
+              </NavBtn>
+
               <NavUser>
                 <NavPhoto href = '/Profile' src = {user.photoURL}></NavPhoto>
                 <NavName to = '/Profile'>{user.displayName}</NavName>
               </NavUser>
-
-              <NavBtn>
-                <NavBtnLink  onClick={handleAuthenticaton}>{!user? 'Sign In' : 'Sign Out'}</NavBtnLink>
-              </NavBtn>
               
             </NavProfile>
             }

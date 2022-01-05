@@ -19,6 +19,9 @@ import Team from './pages/Team'
 import Profile from './pages/Profile';
 import CreateBlog from './components/CreateBlog/CreateBlog';
 import CreateEventPage from './pages/CreateEventPage';
+import Join from './pages/JoinUs';
+import RegAdminPage from './components/RegistrationAdmin/RegAdminPage';
+
 
 
 
@@ -74,6 +77,8 @@ function App() {
                   setUsername(res.data().username)
                   setRole(res.data().role)
 
+
+
                 }
 
                 
@@ -94,12 +99,14 @@ function App() {
         dispatch({
           type: "SET_USER",
           user: authUser,
+          role: role,
         })
       }else{
         //No one is
         dispatch({
           type: "SET_USER",
           user: null,
+          role: "U",
         })
       }
     });
@@ -135,6 +142,15 @@ function App() {
         <Footer/>
         </Route>
 
+        <Route exact path = '/JoinUs' component = {Join}>
+        <Join/>
+        <Footer/>
+        </Route>
+
+        <Route exact path = '/JoinUs/Admin'>
+        {role !== 'U' && user != null && role !== 'M'?  <div> <RegAdminPage/> <Footer/> </div>: <h1>You dont have permission to view this page</h1>}          
+        </Route>
+
 
         <Route exact path = '/News' component = {News}>
         <News/>
@@ -143,7 +159,7 @@ function App() {
 
 
         <Route exact path = '/Tasks' component = {Tasks}>
-        {role != 'U' && user != null?  <div> <Tasks/> <Footer/> </div>: <h1>Poda Bob</h1>}  
+        {role != 'U' && user != null?  <div> <Tasks/> <Footer/> </div>: <h1>You dont have permission to view this page</h1>}  
         </Route>
         
         <Route exact path = '/Teams' component={Team}>
