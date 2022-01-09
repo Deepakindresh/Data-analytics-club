@@ -21,28 +21,28 @@ const Footer = () => {
             <FooterLinkItems>
               <FooterLinkTitle>Who We Are</FooterLinkTitle>
                 <FooterLink to='/AboutUs'>About Us</FooterLink>
-                <FooterLink to='/'>Our Team</FooterLink>
+                <FooterLink to='/Teams'>Our Team</FooterLink>
                 <FooterLink to='/Blog'>Blog</FooterLink>
                 <FooterLink to='/'>Contact</FooterLink>
                 
             </FooterLinkItems>
+            
+          <FooterLinkItems>
+              <FooterLinkTitle>Legal</FooterLinkTitle>
+              <FooterLink onClick = {e => clickHandler('https://www.termsandconditionsgenerator.com/live.php?token=r9UD7Q1roYHikuT6nWWrFl3hWeRgJRB3')}>T&C</FooterLink>
+                <FooterLink onClick = {e => clickHandler('https://www.privacypolicygenerator.info/live.php?token=J7PZoxWEfokFdxPZoJYsU8PPZV5NaUZa')}>Privacy Policy</FooterLink>
+                <FooterLink onClick = {e => clickHandler('https://www.disclaimergenerator.net/live.php?token=zUVTCdzTnR5b9SFgcMiUsjEmDRfDgGa6')}>Disclaimer</FooterLink>
+            </FooterLinkItems>
+            
+          </FooterLinkWrapper>
+
+          <FooterLinkWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Subscriptions</FooterLinkTitle>
                 <FooterLink to='/'>Blogs</FooterLink>
                 <FooterLink to='/'>Events</FooterLink>
                 <FooterLink to='/'>News</FooterLink>
                 <FooterLink to='/'>Research Articles</FooterLink>
-            </FooterLinkItems>
-            
-            
-          </FooterLinkWrapper>
-
-          <FooterLinkWrapper>
-          <FooterLinkItems>
-              <FooterLinkTitle>Legal</FooterLinkTitle>
-              <FooterLink onClick = {e => clickHandler('https://www.termsandconditionsgenerator.com/live.php?token=r9UD7Q1roYHikuT6nWWrFl3hWeRgJRB3')}>Terms and Conditions</FooterLink>
-                <FooterLink onClick = {e => clickHandler('https://www.privacypolicygenerator.info/live.php?token=J7PZoxWEfokFdxPZoJYsU8PPZV5NaUZa')}>Privacy Policy</FooterLink>
-                <FooterLink onClick = {e => clickHandler('https://www.disclaimergenerator.net/live.php?token=zUVTCdzTnR5b9SFgcMiUsjEmDRfDgGa6')}>Disclaimer</FooterLink>
             </FooterLinkItems>
 
             <FooterLinkItems>
@@ -51,7 +51,6 @@ const Footer = () => {
                 <FooterLink onClick = {e => clickHandler('https://discord.gg/FzPzajkh3A')}>Discord</FooterLink>
                 <FooterLink onClick = {e => clickHandler('https://www.linkedin.com/company/dacvitcc/')}>LinkedIn</FooterLink>
                 <FooterLink onClick = {e => clickHandler('https://github.com/Data-Analytics-Club-VITCC')}>Github</FooterLink>
-                <FooterLink to='/'>Twitter</FooterLink>
                 
             </FooterLinkItems>
             

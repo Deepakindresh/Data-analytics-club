@@ -14,6 +14,7 @@ export const Container = styled.div`
     rgba( 1, 147, 86, 1) 0%,
     rgba( 10, 201, 122, 1) 100%
   );
+  padding-bottom: 5rem;
 `
 export const FormWrap = styled.div`
   height: 100%;

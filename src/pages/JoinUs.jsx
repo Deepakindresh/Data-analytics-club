@@ -8,8 +8,45 @@ import { useStateValue } from "../StateProvider";
 import Sidebar from '../components/SideBar/Sidebar'
 import abt from "../images/aboutus.svg" 
 import {db} from '../Firebase'
+import { Link as LinkR } from 'react-router-dom'
+import styled from 'styled-components'
 
+export const EventAddButton = styled(LinkR)`
 
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    position: sticky;
+    bottom:5%;
+    left:95%;
+    z-index:10;
+    background: #01bf71;
+    white-space: nowrap;
+    color: #010606;
+    font-size: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: #fff;
+        color: #010606;
+    }
+
+    @media (max-width: 1366px) {
+        display : none;
+    }
+
+    @media (max-width: 1024px) {
+        display : none;
+
+    }
+`
 
 function Join() {
     const [isOpen, setIsOpen] = useState(false)
@@ -20,6 +57,7 @@ function Join() {
   
     useEffect(() => {
       getState();
+      console.log("Role of user is",role)
     }, [])
   
     function getState() {
@@ -28,7 +66,7 @@ function Join() {
           setAvailable(doc.data().available);
           console.log("This is the available data inside get state",doc.data().available)
           setRegisterlink(doc.data().link);
-          console.log("This is the available data inside get state",doc.data().link)
+          // console.log("This is the available data inside get state",doc.data().link)
           
         }
       })
@@ -58,13 +96,13 @@ function Join() {
         link2: registerlink
       };
     return (
-        <div>
+        <div style={{backgroundColor:"black"}}>
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <Navbar toggle={toggle}/>
             {role === "U" ? 
             available === "OFF" ? <Info {...Joinus}/> : <Info {...JoinusAvailable}/>
             : <Info {...JoinusMember}/>}
-            
+            {role === 'A' ? <EventAddButton to="/JoinUs/Admin">+</EventAddButton> : <div/>}
 
         </div>
     )

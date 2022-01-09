@@ -30,12 +30,14 @@ export const FooterLinkWrapper = styled.div`
   @media screen and (max-width: 820px) {
     flex-direction: column;
     justify-content: space-between;
+    align-self: flex-start;
   }
 `
 export const FooterLinkItems = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: ;
   margin: 16px;
   text-align: left;
   width: 160px;
@@ -50,7 +52,8 @@ export const FooterLinkItems = styled.div`
   }
 `
 export const FooterLinkTitle = styled.h1`
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   margin-bottom: 16px;
 `
 export const FooterLink = styled(Link)`

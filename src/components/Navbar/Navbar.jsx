@@ -94,11 +94,11 @@ const Navbar = ({ toggle }) => {
             </NavItem>
 
 
-            <NavItem>
+            {/* <NavItem>
               <NavLinks to = '/Teams'
               
               >Teams</NavLinks>
-            </NavItem>
+            </NavItem> */}
 
             <NavItem>
               <NavLinks to='/AboutUs'

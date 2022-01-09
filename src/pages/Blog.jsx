@@ -6,13 +6,14 @@ import Container from '@material-ui/core/Container';
 
 
 import Info from '../components/Info/Info'
-import {Ourblog, Writeblog} from '../components/Info/Data';
+import {Ourblog, Writeblog, Writeblog2} from '../components/Info/Data';
 import Navbar from '../components/Navbar/Navbar'
 import Sidebar from '../components/SideBar/Sidebar'
 
 import {BlogsCard, BlogsIcon, BlogsH1} from '../components/BlogsHome/BlogsHomeElements'
 
 import axios from 'axios'
+import { useStateValue } from '../StateProvider';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -52,6 +53,8 @@ export default function Blog2() {
   const [isOpen, setIsOpen] = useState(false)
 
   const [blogs, setBlogs] = useState([])
+
+  const [{role}] = useStateValue()
 
   useEffect(() => {
     axios.get('https://dac-api.herokuapp.com/blogs').then(
@@ -106,7 +109,7 @@ export default function Blog2() {
             ))}
           </Grid>
         </Container>
-          <Info {...Writeblog}/>
+          {role !== 'U' ? <Info {...Writeblog}/> : <Info {...Writeblog2}/>}
           </div>
           
           
@@ -115,3 +118,21 @@ export default function Blog2() {
     </React.Fragment>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

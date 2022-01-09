@@ -17,7 +17,7 @@ export const Join = {
   lighttextDesc: false,
   topLine: 'Join Us',
   headline: 'Join Us For Exclusive Content',
-  description: 'Get access to our exclusive content on Data Analytics, Tasks, News and Jupyter Notebook all at one place only available for club members.',
+  description: 'Get access to our exclusive content on Data Analytics, Tasks, Projects and writing your own Blogs.',
   buttonLabel: 'Register Now!',
   imgStart: true,
   img: jn,
@@ -80,6 +80,24 @@ export const Writeblog = {
   primary: false,
   darkText: true,
   toGo: '/Blog/CreateBlog'
+};
+
+export const Writeblog2 = {
+  id: 'Writeblog',
+  lightBg: true,
+  lightText: false,
+  lighttextDesc: false,
+  topLine: 'Data Analytics Club',
+  headline: 'Write your own Blogs',
+  description: 'Get access to write your own blogs and bring flavours to the Data Analytics World.',
+  buttonLabel: 'Join Us',
+  imgStart: true,
+  img: wrblg,
+  alt: 'Write Blogs',
+  dark: false,
+  primary: false,
+  darkText: true,
+  link: 'JoinUs'
 };
 
 export const Aboutus = {

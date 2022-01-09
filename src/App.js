@@ -42,30 +42,30 @@ function App() {
   const [role,setRole] = useState()
   const [dp,setDp] = useState()
 
-  async function getUser()
+  async function getUser(authUser)
     {
         let CurrentAuthUser = await user
 
-        if(CurrentAuthUser == null)
-        {
+        // if(CurrentAuthUser == null)
+        // {
+        //   console.log("Current auth user is ",CurrentAuthUser)
+        // }
 
-        }
+        // else{
 
-        else{
+            // setDp(user.photoURL)
+            // console.log(user)
 
-            setDp(user.photoURL)
-            console.log(user)
-
-            var Userdetails = db.collection('user').doc(user.email).get()
-            console.log('demm',Userdetails)
+            var Userdetails = db.collection('user').doc(authUser.email).get()
             Userdetails.then(res => {
                 console.log('res',res.data())
                 if(!res.data())
                 {
+                  console.log("New user is added")
                   console.log("Inside if ",res.data())
-                  db.collection('user').doc(user.email).set({
-                    email : user.email,
-                    username : user.displayName,
+                  db.collection('user').doc(authUser.email).set({
+                    email : authUser.email,
+                    username : authUser.displayName,
                     role : "U"
                 })
 
@@ -73,11 +73,19 @@ function App() {
 
                 else{
 
-                  setEmail(res.data().email)
-                  setUsername(res.data().username)
-                  setRole(res.data().role)
+                  // setEmail(res.data().email)
+                  // setUsername(res.data().username)
+                  console.log("Inside else role is ",res.data().role)
+                  // setRole(res.data().role)
+                  // console.log("After set role",role)
 
-
+                  console.log('user logged in as ',authUser.displayName)
+                  // console.log('user role as ',role)
+                  dispatch({
+                    type: "SET_USER",
+                    user: authUser,
+                    role: res.data().role,
+                  })
 
                 }
 
@@ -86,7 +94,7 @@ function App() {
 
                 
             })
-        }
+        // }
     }
 
     
@@ -95,14 +103,11 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if(authUser){
         //User is logged in
-        getUser()
-        dispatch({
-          type: "SET_USER",
-          user: authUser,
-          role: role,
-        })
+        getUser(authUser)
+        
       }else{
         //No one is
+        console.log("No user is logged in")
         dispatch({
           type: "SET_USER",
           user: null,
@@ -148,7 +153,7 @@ function App() {
         </Route>
 
         <Route exact path = '/JoinUs/Admin'>
-        {role !== 'U' && user != null && role !== 'M'?  <div> <RegAdminPage/> <Footer/> </div>: <h1>You dont have permission to view this page</h1>}          
+        {role !== 'U' && user != null && role !== 'M'?  <div> <RegAdminPage style={{marginBottom:"200px"}}/> <Footer /> </div>: <h1>You dont have permission to view this page</h1>}          
         </Route>
 
 
@@ -159,7 +164,7 @@ function App() {
 
 
         <Route exact path = '/Tasks' component = {Tasks}>
-        {role != 'U' && user != null?  <div> <Tasks/> <Footer/> </div>: <h1>You dont have permission to view this page</h1>}  
+        {role !== 'U' && user != null?  <div> <Tasks/> <Footer/> </div>: <h1>You dont have permission to view this page</h1>}  
         </Route>
         
         <Route exact path = '/Teams' component={Team}>
@@ -177,10 +182,10 @@ function App() {
           <Footer/>
         </Route>
 
-        <Route exact path = '/Blog/CreateBlog'>
+        {/* <Route exact path = '/Blog/CreateBlog'>
           <CreateBlog/>
           <Footer/>
-        </Route>
+        </Route> */}
 
         <Route exact path='/' component={Home}>
           <Home/>

@@ -17,6 +17,8 @@ const CreateEvent = () => {
   const [imagelink,setImagelink] = useState(null);
   const [discord, setDiscord] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
+  const [startdate, setStartdate] = useState("");
+  const [enddate, setEnddate] = useState("");
   const [registerlink, setRegisterlink] = useState("");
   
  
@@ -25,6 +27,8 @@ const CreateEvent = () => {
     alert('Uploading Please Wait...')
     db.collection('Events').doc(eventname).set({
       Event_name : eventname,
+      Start_date: startdate,
+      End_date: enddate,
       Poster_link: imagelink,
       Registration_link: registerlink,
       Discord_link: discord,
@@ -50,6 +54,10 @@ const CreateEvent = () => {
                 <FormInput htmlFor='text' value={discord} type="text" onChange = {event => setDiscord(event.target.value)}/>
               <FormLabel htmlFor='text'>Whatsapp Link</FormLabel>
                 <FormInput htmlFor='text' value={whatsapp} type="text" onChange = {event => setWhatsapp(event.target.value)}/>
+                <FormLabel htmlFor='text'>Start Date (dd/mm/yyyy)</FormLabel>
+                <FormInput htmlFor='text' value={startdate} type="text" onChange = {event => setStartdate(event.target.value)}/>
+                <FormLabel htmlFor='text'>End Date (dd/mm/yyyy)</FormLabel>
+                <FormInput htmlFor='text' value={enddate} type="text" onChange = {event => setEnddate(event.target.value)}/>
               <FormLabel htmlFor='text'>Poster Image Link</FormLabel>
               <FormInput htmlFor='text' value={imagelink} type="text" onChange = {event => setImagelink(event.target.value)}/>
               <FormButton type='submit' onClick = {handleUpload}>Continue</FormButton>

@@ -15,7 +15,7 @@ const Blogs = () => {
         
         const newBlogs = blogs.splice()
 
-        for(var i=0;i<res.data.length;i++)
+        for(var i=0;i<3;i++)
         {
           newBlogs.push({title : res.data[i].title, img : res.data[i].img, readTime : res.data[i].readtime, blogNo: i, link : res.data[i].link})
         }
