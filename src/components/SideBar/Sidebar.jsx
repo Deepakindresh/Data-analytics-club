@@ -52,9 +52,12 @@ const Sidebar = ({isOpen,toggle}) => {
           <SidebarLink to='/OurProject' onClick={toggle}>Projects</SidebarLink>
           <SidebarLink to='/AboutUs' onClick={toggle}>About</SidebarLink>
           <SidebarLink to='/JoinUs' onClick={toggle}>Join</SidebarLink>
-          {!user ? <SidebarLink2 onClick={(e) => handleAuthenticaton(e)}>Sign In</SidebarLink2> :
-          <SidebarLink2 onClick={(e) => handleAuthenticaton(e)}>Sign Out</SidebarLink2>}
+          
         </SidebarMenu>
+        <SideBtnWrap>
+            {!user ? <SidebarLink2 onClick={(e) => handleAuthenticaton(e)}>Sign In</SidebarLink2> :
+            <SidebarLink2 onClick={(e) => handleAuthenticaton(e)}>Sign Out</SidebarLink2>}
+          </SideBtnWrap>
         {/* <SideBtnWrap onclick = {(e) => handleAuthenticaton(e)}>
           {!user ? <SidebarRoute>Sign in</SidebarRoute> : 
           <SidebarRoute>Sign out</SidebarRoute>}
