@@ -30,7 +30,6 @@ export const EventsContainer = styled.div`
         justify-content : space-around;
         justify-self : center;
     }
-
     @media (max-width: 768px) {
         display : flex;
         flex-direction : column;
@@ -43,12 +42,13 @@ export const EventLeft = styled.div`
     justify-content : space-between;
     align-items : center;
     height : 10rem;
-
     @media (max-width: 1366px) {
+        display : flex;
         height : auto;
-        flex-direction : row;
+        flex-direction : column;
         justify-content : space-between;
         align-items : center;
+        
     }
 `
 
@@ -56,7 +56,8 @@ export const EventRight = styled.div`
     display : flex;
     flex-direction : column;
     padding-left : 2rem;
-
+    align-items : center;
+    justify-content : space-between;
     @media (max-width: 1366px) {
         padding-left : 0rem;
     }
@@ -66,29 +67,25 @@ export const EventName = styled.div`
     font-size : 2rem;
     font-weight : bold;
     color : white;
-
     @media (max-width: 1366px) {
-        font-size : 1.5rem;
+        font-size : 1rem;
     }
 `
 export const EventDate = styled.div`
     font-size : 0.8rem;
     color : white;
-
     @media (max-width: 1366px) {
-        font-size : 1.5rem;
+        display : none;
     }
 `
 
 export const EventPhoto = styled.img`
     width : 50rem;
     height : 60rem;
-
     @media (max-width: 1366px) {
         width : 30rem;
         height : 40rem;
     }
-
     @media (max-width: 640px) {
         width : 20rem;
         height : 30rem;
@@ -112,24 +109,19 @@ export const EventRegisterButton = styled.button`
         background: #fff;
         color: #010606;
     }
-
     @media (max-width: 1366px) {
         display : none;
-    }
-
-    @media (max-width: 1024px) {
-        display : none;
-
     }
 `
 
 export const EventRegisterButton1 = styled.button`
-
-    display : none;
-    @media (max-width: 1024px) {
+    @media (max-width: 1366px) 
+    {
+        display : flex;
         border-radius: 50px;
         background: #01bf71;
         white-space: nowrap;
+        justify-content: center;
         padding: 10px 22px;
         color: #010606;
         font-size: 16px;
@@ -139,17 +131,17 @@ export const EventRegisterButton1 = styled.button`
         transition: all 0.2s ease-in-out;
         text-decoration: none;
         margin-top : 1rem;
+        width : 60%;
         &:hover {
             transition: all 0.2s ease-in-out;
             background: #fff;
             color: #010606;
         }
-
     }
+    display : none;
 `
 
 export const EventAddButton = styled(LinkR)`
-
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
@@ -174,14 +166,11 @@ export const EventAddButton = styled(LinkR)`
         background: #fff;
         color: #010606;
     }
-
     @media (max-width: 1366px) {
         display : none;
     }
-
     @media (max-width: 1024px) {
         display : none;
-
     }
 `
 
@@ -200,7 +189,6 @@ export const Timeline = styled.div`
     width: 30%;
     top: 15%;
     background: #010606;
-
     @media screen and (max-width: 960px) {
         transition: 0.8s all ease;
       }
@@ -216,14 +204,11 @@ export const TimelineOption = styled.div`
     cursor: pointer;
     
     
-
     &:hover{
-
     text-decoration : none;
     color : white;
     border-bottom : 3px solid green;
     }
-
     &.active{
     border-bottom: 3px solid #01bf71
     text-decoration : none;
