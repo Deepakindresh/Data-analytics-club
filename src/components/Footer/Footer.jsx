@@ -29,9 +29,9 @@ const Footer = () => {
             
           <FooterLinkItems>
               <FooterLinkTitle>Legal</FooterLinkTitle>
-              <FooterLink onClick = {e => clickHandler('https://www.termsandconditionsgenerator.com/live.php?token=r9UD7Q1roYHikuT6nWWrFl3hWeRgJRB3')}>T&C</FooterLink>
-                <FooterLink onClick = {e => clickHandler('https://www.privacypolicygenerator.info/live.php?token=J7PZoxWEfokFdxPZoJYsU8PPZV5NaUZa')}>Privacy Policy</FooterLink>
-                <FooterLink onClick = {e => clickHandler('https://www.disclaimergenerator.net/live.php?token=zUVTCdzTnR5b9SFgcMiUsjEmDRfDgGa6')}>Disclaimer</FooterLink>
+              <FooterLink onClick = {e => clickHandler('https://www.termsandconditionsgenerator.com/live.php?token=cKkHV9mYZpN2kXNtnCHWBy03oDn1Nya2')}>T&C</FooterLink>
+                <FooterLink onClick = {e => clickHandler('https://www.privacypolicygenerator.info/live.php?token=2cMMFXg8DZNoOj0ZK7k7szG2rvcUGlx5')}>Privacy Policy</FooterLink>
+                <FooterLink onClick = {e => clickHandler('https://www.disclaimergenerator.net/live.php?token=hX0MXsxHh38OddSDoq44Rb3LCPVmcVvU')}>Disclaimer</FooterLink>
             </FooterLinkItems>
             
           </FooterLinkWrapper>
