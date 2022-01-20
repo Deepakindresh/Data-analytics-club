@@ -13,7 +13,7 @@ import Sidebar from '../components/SideBar/Sidebar'
 
 
 
-import { NewsH1,  NewsCard, NewsIcon} from '../components/News/NewsElements';
+import { NewsH1,  NewsCard, NewsIcon} from '../components/News/NewsBlogsPageStyle';
 
 import axios from 'axios'
 
@@ -131,9 +131,9 @@ export default function News() {
         
           {/* End hero unit */}
           <Info {...WeeklyNews}/>
-          <div style={{backgroundColor: "#010606",marginTop:"-100px"}}>
-          <Container className={classes.cardGrid} maxWidth="md" >
-          <Grid container spacing={10}>
+          <div style={{backgroundColor: "#010606",marginTop:"-100px", width: "100%"}}>
+          <Container className={classes.cardGrid} maxWidth="70%" >
+          <Grid container spacing={7}>
             {news.map((newsIterator) => (
               <Grid item xs={12} sm={6} md={4}>
                 <NewsCard onClick = {e => clickHandler1(newsIterator.newsNo)}>
@@ -170,8 +170,8 @@ export default function News() {
           </div>
           <Info {...Researchpapers}/>
           <div style={{backgroundColor: "lightgray",marginTop:"-100px"}}>
-            <Container className={classes.cardGrid} maxWidth="md" >
-          <Grid container spacing={10}>
+            <Container className={classes.cardGrid} maxWidth="80%" >
+          <Grid container spacing={7}>
             {researchPapers.map((paper) => (
               <Grid item xs={12} sm={6} md={4}>
                 <NewsCard onClick = {e => clickHandler1(paper.paperNo)}>

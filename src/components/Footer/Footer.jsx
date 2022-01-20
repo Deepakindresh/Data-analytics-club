@@ -65,7 +65,7 @@ const Footer = () => {
               {/* <SocialIconLink href='/' target='_blank' arial-label='Facebook'>
                 <FaFacebook />
               </SocialIconLink> */}
-              <SocialIconLink href='https://www.instagram.com/dac_vit_chennai/' target='_blank' arial-label='Instagram'>
+              <SocialIconLink href='https://instagram.com/dac_vitcc?utm_medium=copy_link' target='_blank' arial-label='Instagram'>
                 <FaInstagram/>
               </SocialIconLink>
               <SocialIconLink href='https://discord.gg/FzPzajkh3A' target='_blank' arial-label='Discord'>

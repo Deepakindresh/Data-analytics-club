@@ -36,7 +36,8 @@ export const NewsWrapper = styled.div`
   }
 `
 export const NewsCard = styled.div`
-  background: #fff;
+  background: #f5f5f5;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

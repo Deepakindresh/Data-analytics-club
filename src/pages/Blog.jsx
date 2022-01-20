@@ -94,8 +94,8 @@ export default function Blog2() {
           {/* End hero unit */}
           <Info {...Ourblog}/>
           <div style={{backgroundColor: "#010606",marginTop:"-100px"}}>
-          <Container className={classes.cardGrid} maxWidth="md" >
-          <Grid container spacing={10}>
+          <Container className={classes.cardGrid} maxWidth="100%" >
+          <Grid container spacing={7}>
             {blogs.map((blog) => (
               <Grid item key={blog.blogNo} xs={12} sm={6} md={4}>
                     <BlogsCard onClick = {e => clickHandler1(blog.blogNo)}>

@@ -113,8 +113,8 @@ export default function OurProject() {
           
           <Info {...OurProjects}/>
           <div style={{backgroundColor: "lightgray",marginTop:"-100px"}}>
-            <Container className={classes.cardGrid} maxWidth="md" >
-          <Grid container spacing={10}>
+            <Container className={classes.cardGrid} maxWidth="100%" >
+          <Grid container spacing={7}>
             {projects.map((project) => (
               <Grid item xs={12} sm={6} md={4}>
                 <NewsCard>
